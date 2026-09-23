@@ -1,0 +1,7 @@
+{% extends "templates/web.html" %}
+{% block hi %}
+<h1>Jobs</h1>
+{% for item in joblist %}
+    <p>{{item.name}}</p>
+{% endfor %}
+{% endblock %}

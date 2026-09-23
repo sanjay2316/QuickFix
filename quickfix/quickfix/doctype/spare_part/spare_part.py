@@ -11,5 +11,5 @@ class SparePart(Document):
 		if self.is_active :
 			self.name = self.part_code.upper()
 		else :
-			series = getseries("PART",4)
-			self.name = f"{"PART"}-{series}"
+			series = getseries("PART-2026",9)
+			self.name = f"{"PART-2026"}-{series}"

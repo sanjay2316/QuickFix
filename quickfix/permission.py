@@ -1,5 +1,13 @@
 import frappe
-def jobcard_query(user):
+def jobcard_query(user=None):
     if not user:
         user = frappe.session.user
-    return "(`tabToDo`.owner = {user} or `tabToDo`.assigned_by = {user})".format(user=frappe.db.escape(user))
+    user = frappe.db.escape(user)
+    if user in "Technician":
+        return f"""
+            tabJob Card.name IN (
+                SELECT parent
+                FROM tabJob Card Technician
+                WHERE user = {user}
+            )"""
+    

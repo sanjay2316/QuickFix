@@ -4,7 +4,7 @@ app_publisher = "Sanjay"
 app_description = "Mobile Repair Shop"
 app_email = "sanjay@email.com"
 app_license = "mit"
-
+update_website_context = "quickfix.www.track-job.get_context"
 # Apps
 # ------------------
 
@@ -136,7 +136,7 @@ app_license = "mit"
 # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 permission_query_conditions = {
-    "Job Card": "app.permissions.jobcard_query",
+    "Job Card": "quickfix.permission.jobcard_query",
 }
 
 #

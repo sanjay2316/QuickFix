@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_bulk_edit": 1,
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "JC.-.YYYY.-.#####",
  "creation": "2026-09-22 16:48:24.570396",
@@ -9,6 +10,7 @@
  "field_order": [
   "section_break_nx4p",
   "amended_from",
+  "customer",
   "customer_name",
   "customer_phone",
   "device_type",
@@ -50,18 +52,20 @@
    "search_index": 1
   },
   {
+   "fetch_from": "customer.name1",
    "fieldname": "customer_name",
    "fieldtype": "Data",
-   "label": "Customer Name"
+   "label": "Customer Name",
+   "read_only": 1
   },
   {
+   "fetch_from": "customer.phone",
    "fieldname": "customer_phone",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Customer Phone",
-   "length": 10,
    "options": "Phone",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "device_type",
@@ -183,14 +187,21 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Draft\nPending\nDiagnosis\nAwaiting Customer Approval\nIn Repair\nReady for Delivery\nDelivered\nCancelled"
+   "options": "Draft\nPending Diagnosis\nAwaiting Customer Approval\nIn Repair\nReady for Delivery\nDelivered\nCancelled"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customers",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-09-22 18:50:10.863273",
+ "modified": "2026-09-23 18:34:15.023542",
  "modified_by": "Administrator",
  "module": "Quickfix",
  "name": "Job Card",
