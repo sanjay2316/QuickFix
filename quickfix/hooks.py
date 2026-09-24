@@ -4,7 +4,6 @@ app_publisher = "Sanjay"
 app_description = "Mobile Repair Shop"
 app_email = "sanjay@email.com"
 app_license = "mit"
-update_website_context = "quickfix.www.track-job.get_context"
 # Apps
 # ------------------
 

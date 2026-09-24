@@ -1,0 +1,78 @@
+{% extends "templates/web.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Job Cards</h2>
+    {% for job in jobs %}
+    <div class="job-card" id="{{job.name}}">
+        <h3>
+            Job Card: {{ job.name }}
+        </h3>
+        <p>
+            <strong>Status:</strong>
+            <span class="job-status">
+                {{ job.status}}
+            </span>
+        </p>
+        <p>
+            <strong>Workflow:</strong>
+            <span class="job-workflow">
+                {{ job.workflow_state}}
+            </span>
+        </p>
+        {% if job.workflow_state == "Awaiting Customer Approval" %}
+        <p>
+            <strong>Parts Amount:</strong>
+            <span class="job-parts_total">
+                {{ job.parts_total}}
+            </span>
+        </p>
+        <p>
+            <strong>Labour Charge:</strong>
+            <span class="job-labour">
+                {{ job.labour_charge}}
+            </span>
+        </p>
+        <p>
+            <strong>Total Estimated Value:</strong>
+            <span class="job-total">
+                {{ job.final_amount}}
+            </span>
+        </p>
+        <p>Click Approve to Proceed Repair with estimated amount</p>
+        <button
+            class="btn btn-success approve-btn"
+            onclick="approve_job('{{ job.name }}', this)">
+            Approve
+        </button>
+        
+        {% endif %}
+    </div>
+    <hr>
+    {% endfor %}
+
+</div>
+
+<script>
+function approve_job(name, button) {
+    button.disabled = true;
+    button.innerText = "Approving...";
+    frappe.call({
+        method: "quickfix.api.approve_job",
+        args: {
+            name: name
+        },
+        callback: function(r) {
+            if (r.message) {
+                let card = document.getElementById(name);
+                card.querySelector(".job-status").innerText = r.message.status;
+                card.querySelector(".job-workflow").innerText = r.message.workflow_state;
+            }
+        },
+    });
+    button.innerText = "Approved";
+    button.classList.remove("btn-success");
+
+}
+</script>
+{% endblock %}
