@@ -1,5 +1,4 @@
 {% extends "templates/web.html" %}
-
 {% block content %}
 <div class="container">
     <h2>Job Cards</h2>
@@ -10,9 +9,9 @@
         </h3>
         <p>
             <strong>Status:</strong>
-            <span class="job-status">
+            <div class="job-status">
                 {{ job.status}}
-            </span>
+            </div>
         </p>
         <p>
             <strong>Workflow:</strong>
@@ -40,12 +39,9 @@
             </span>
         </p>
         <p>Click Approve to Proceed Repair with estimated amount</p>
-        <button
-            class="btn btn-success approve-btn"
-            onclick="approve_job('{{ job.name }}', this)">
-            Approve
+        <button class="btn btn-success approve-btn" onclick="approve_job('{{ job.name }}', this)"> 
+            Approve 
         </button>
-        
         {% endif %}
     </div>
     <hr>

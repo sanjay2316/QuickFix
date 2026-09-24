@@ -85,7 +85,7 @@ app_license = "mit"
 # ------------
 
 # before_install = "quickfix.install.before_install"
-# after_install = "quickfix.install.after_install"
+after_install = "quickfix.api.create_device_type"
 
 # Uninstallation
 # ------------
@@ -154,7 +154,13 @@ permission_query_conditions = {
 # 		"on_trash": "method"
 # 	}
 # }
-
+doc_events = {
+    "*": {
+        "on_update": "quickfix.audit.log_change",
+        "on_submit": "quickfix.audit.log_change",
+        "on_cancel": "quickfix.audit.log_change",
+    }
+}
 # Scheduled Tasks
 # ---------------
 
