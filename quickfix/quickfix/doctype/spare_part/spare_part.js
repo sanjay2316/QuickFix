@@ -3,8 +3,8 @@
 
 frappe.ui.form.on("Spare Part", {
 	validate(frm) {
-        if(frm.doc.selling_cost <= frm.doc.unit_cost){
-            frappe.throw("Selling Price should be Greater than Unit Cost !");
-        }
+		if (frm.doc.selling_cost <= frm.doc.unit_cost) {
+			frappe.throw("Selling Price should be Greater than Unit Cost !");
+		}
 	},
 });

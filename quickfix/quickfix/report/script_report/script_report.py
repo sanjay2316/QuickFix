@@ -9,11 +9,10 @@ def execute(filters: None):
 	columns = get_columns()
 	data = get_data()
 	graph = get_graph(data)
-	return columns, data, None,graph
+	return columns, data, None, graph
 
 
 def get_columns():
-
 	return [
 		{
 			"label": _("Technician Name"),
@@ -44,18 +43,22 @@ def get_columns():
 
 
 def get_data():
-	res = frappe.db.sql("""
-		select 
-		j.assigned_technician as technician_name, 
-		count(*) as total_jobs, 
+	res = frappe.db.sql(
+		"""
+		select
+		j.assigned_technician as technician_name,
+		count(*) as total_jobs,
 		sum(Case when j.status='Ready for Delivery' or j.status='Delivered' then 1 else 0 end) as completed_jobs,
 		sum(j.final_amount) as revenue,
 		sum(Case When j.status='Ready for Delivery' or j.status='Delivered' then 1 else 0 end)/(count(*))*100 as completion_rate
 		from `tabJob Card` j
 		where j.status != 'Rejected'
 		group by j.assigned_technician
-	""",as_dict=True)
+	""",
+		as_dict=True,
+	)
 	return res
+
 
 def get_graph(data):
 	if not data:
@@ -65,19 +68,13 @@ def get_graph(data):
 	completed = [int(row.completed_jobs or 0) for row in data]
 	return {
 		"data": {
-			"labels": labels ,
+			"labels": labels,
 			"datasets": [
-				{
-					"name": "Total Jobs",
-					"values": total
-				},
-				{
-					"name": "Completed Jobs",
-					"values": completed
-				}
-			]
+				{"name": "Total Jobs", "values": total},
+				{"name": "Completed Jobs", "values": completed},
+			],
 		},
 		"type": "bar",
 		"height": 300,
-		"colors": ["#000000","#FF0000"]
+		"colors": ["#000000", "#FF0000"],
 	}
