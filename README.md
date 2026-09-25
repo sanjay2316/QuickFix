@@ -48,7 +48,7 @@ mit
     other.save()
 
 Answer : 1)You should not use save() method inside a validate because it will lead to recursion error
-          2)You can save object of another doc in validate 
+          2)You cannot save or operate object of another doc in validate of another 
           
 
 2)why would you see a "Document has been modified after you have opened it" error, and how does Frappe prevent concurrent overwrites? (One paragraph.)
