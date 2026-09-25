@@ -14,6 +14,7 @@
  ],
  "fields": [
   {
+   "default": "QuickFix",
    "fieldname": "shop_name",
    "fieldtype": "Data",
    "label": "Shop Name"
@@ -49,7 +50,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-09-22 16:47:21.818164",
+ "modified": "2026-09-25 14:37:04.308980",
  "modified_by": "Administrator",
  "module": "Quickfix",
  "name": "QuickFix Settings",

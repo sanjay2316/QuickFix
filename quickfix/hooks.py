@@ -76,10 +76,10 @@ app_license = "mit"
 # ----------
 
 # add methods and filters to jinja environment
-# jinja = {
-# 	"methods": "quickfix.utils.jinja_methods",
+jinja = {
+ 	"methods": "quickfix.utils.get_name"
 # 	"filters": "quickfix.utils.jinja_filters"
-# }
+ }
 
 # Installation
 # ------------

@@ -93,7 +93,8 @@ function Assigned_technician_filter(frm) {
     frm.set_query("assigned_technician", () => {
         return {
             filters: {
-                specialization: frm.doc.device_type
+                specialization: frm.doc.device_type,
+                status: "Active"
             }
         }
     })
