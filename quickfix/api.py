@@ -70,3 +70,11 @@ def transfer_job(from_tech,to_tech):
     except Exception :
         print("Error")
 #http://127.0.0.1:8001/api/method/quickfix.api.transfer_job?from_tech=TECH-0001&to_tech=TECH-0002
+
+@frappe.whitelist()
+def check_low_stock():
+    lowq = frappe.db.sql(""" select s.part_name from `tabSpare Part` where stock_qty < 10
+    """)
+    for low in lowq:
+        print(low)
+    return

@@ -164,13 +164,13 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"quickfix.tasks.all"
 # 	],
-# 	"daily": [
-# 		"quickfix.tasks.daily"
-# 	],
+	"daily": [
+ 		"quickfix.api.check_low_stock"
+ 	]
 # 	"hourly": [
 # 		"quickfix.tasks.hourly"
 # 	],
@@ -180,7 +180,7 @@ doc_events = {
 # 	"monthly": [
 # 		"quickfix.tasks.monthly"
 # 	],
-# }
+ }
 
 # Testing
 # -------
