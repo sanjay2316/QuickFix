@@ -77,9 +77,9 @@ app_license = "mit"
 
 # add methods and filters to jinja environment
 jinja = {
- 	"methods": "quickfix.utils.get_name"
-# 	"filters": "quickfix.utils.jinja_filters"
- }
+	"methods": "quickfix.utils.get_name"
+	# 	"filters": "quickfix.utils.jinja_filters"
+}
 
 # Installation
 # ------------
@@ -135,7 +135,7 @@ after_install = "quickfix.api.create_device_type"
 # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 permission_query_conditions = {
-    "Job Card": "quickfix.permission.jobcard_query",
+	"Job Card": "quickfix.permission.jobcard_query",
 }
 
 #
@@ -155,32 +155,30 @@ permission_query_conditions = {
 # 	}
 # }
 doc_events = {
-    "*": {
-        "on_update": "quickfix.audit.log_change",
-        "on_submit": "quickfix.audit.log_change",
-        "on_cancel": "quickfix.audit.log_change",
-    }
+	"*": {
+		"on_update": "quickfix.audit.log_change",
+		"on_submit": "quickfix.audit.log_change",
+		"on_cancel": "quickfix.audit.log_change",
+	}
 }
 # Scheduled Tasks
 # ---------------
 
 scheduler_events = {
-# 	"all": [
-# 		"quickfix.tasks.all"
-# 	],
-	"daily": [
- 		"quickfix.api.check_low_stock"
- 	]
-# 	"hourly": [
-# 		"quickfix.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"quickfix.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"quickfix.tasks.monthly"
-# 	],
- }
+	# 	"all": [
+	# 		"quickfix.tasks.all"
+	# 	],
+	"daily": ["quickfix.api.check_low_stock"]
+	# 	"hourly": [
+	# 		"quickfix.tasks.hourly"
+	# 	],
+	# 	"weekly": [
+	# 		"quickfix.tasks.weekly"
+	# 	],
+	# 	"monthly": [
+	# 		"quickfix.tasks.monthly"
+	# 	],
+}
 
 # Testing
 # -------
@@ -270,4 +268,3 @@ scheduler_events = {
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
