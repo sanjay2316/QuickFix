@@ -2,12 +2,10 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Customers", {
-	refresh(frm) {
-
+	refresh(frm) {},
+	validate(frm) {
+		if (frm.doc.phone.length < 10) {
+			frappe.throw("Invalid Phone ! (Reason -> 10 digit required)");
+		}
 	},
-    validate(frm){
-        if(frm.doc.phone.length <10){
-            frappe.throw("Invalid Phone ! (Reason -> 10 digit required)")
-        }
-    }
 });
