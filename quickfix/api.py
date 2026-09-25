@@ -19,13 +19,13 @@ def approve_job(name):
 @frappe.whitelist()
 def create_device_type():
 	doc1 = frappe.new_doc("Device Type")
-	doc1.device_type("Device1")
+	doc1.device_type = "Device1"
 	doc1.insert()
 	doc2 = frappe.new_doc("Device Type")
-	doc2.device_type("Device2")
+	doc2.device_type = "Device2"
 	doc2.insert()
 	doc3 = frappe.new_doc("Device Type")
-	doc3.device_type("Device3")
+	doc3.device_type = "Device3"
 	doc3.insert()
 	settings = frappe.get_doc("QuickFix Settings")
 	settings.manager_email = "manager1@quickfix.com"
@@ -39,7 +39,7 @@ def success_msg():
 		title="Success_msg",
 		indicator="green",
 	)
-	return
+	return "hi"
 
 
 @frappe.whitelist()
